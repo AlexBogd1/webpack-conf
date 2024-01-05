@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    // When you are using "react-jsx" option, you are using this new React 17 compilation.
+    // не нужно исп import React from 'react'
+    /* Default: "react" 
+          import React from 'react';
+          export const HelloWorld = () => React.createElement("h1", null, "Hello world");
+          
+        React 17 transform: "react-jsx"
+          import { jsx as _jsx } from "react/jsx-runtime";
+          import React from 'react';
+          export const HelloWorld = () => _jsx("h1", { children: "Hello world" });
+  */
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    // если библиотека не имеет default import
+    // loaders как ts-loader или babel-loader
+    // автоматически создают их
+    "allowSyntheticDefaultImports": true,
+    // позволяет работать с пакетами, которые исспользуют common js
+    // как с обычными пакетами с пом import (require() module.exports) = common js
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    // чтобы использовать alias для роутинга (см buildResolvers)
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
